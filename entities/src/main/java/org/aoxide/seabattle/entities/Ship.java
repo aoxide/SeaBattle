@@ -9,22 +9,22 @@ import java.util.ArrayList;
  */
 public class Ship 
 {
-    private final List<Cell> Decks = new ArrayList<Cell>();
+    private final List<Cell> decks = new ArrayList<Cell>();
     
     public Ship()
     {
     }
 
-    public Ship(List<Cell> Cells)
+    public Ship(List<Cell> cells)
     {
-        Decks.addAll(Cells);
+        decks.addAll(cells);
     }
     
-    public Cell GetDeck(int X, int Y)
+    public Cell GetDeck(int x, int y)
     {
-        for(Cell c: Decks)
+        for(Cell c: decks)
         {
-            if ((c.GetX() == X) | (c.GetY() == Y))
+            if ((c.getX() == x) | (c.getY() == y))
                     return c;
         }
         

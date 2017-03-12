@@ -6,33 +6,33 @@ package org.aoxide.seabattle.entities;
  */
 public class Cell 
 {
-    private final int X;
-    private final int Y;
+    private final int x;
+    private final int y;
     private CellState state;
     
     public Cell(int aX, int aY)
     {
-        X = aX;
-        Y = aY;
+        x = aX;
+        y = aY;
         state = CellState.UNCHECKED;
     }
     
-    public int GetX()
+    public int getX()
     {
-        return X;
+        return x;
     }
     
-    public int GetY()
+    public int getY()
     {
-        return Y;
+        return y;
     }
     
-    public CellState GetState()
+    public CellState getState()
     {
         return state;
     }
     
-    public void SetState(CellState aState)
+    public void setState(CellState aState)
     {
         state = aState;
     }

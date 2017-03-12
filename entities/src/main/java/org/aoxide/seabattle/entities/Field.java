@@ -9,14 +9,14 @@ import java.util.ArrayList;
  */
 public class Field 
 {
-    private final List<Cell> Cells = new ArrayList<>();
-    private final List<Ship> Ships = new ArrayList<>();
+    private final List<Cell> cells = new ArrayList<>();
+    private final List<Ship> ships = new ArrayList<>();
     
     public Field()
     {
         for (int i=1; i<=10;i++)
             for (int j=1; j<=10;j++)
-                Cells.add(new Cell(i,j));
+                cells.add(new Cell(i,j));
     }
     
     public Field(boolean AutoGenerateShips)
@@ -29,33 +29,38 @@ public class Field
         }
     }
     
-    public Cell GetCell(int X, int Y)
+    public Cell getCell(int X, int Y)
     {
-        for(Cell c: Cells)
+        for(Cell c: cells)
         {
-            if ((c.GetX() == X) | (c.GetY() == Y))
+            if ((c.getX() == X) | (c.getY() == Y))
                     return c;
         }
         
         return null;
     }
     
-    public void CheckCell(int X, int Y)
+    public void checkCell(int X, int Y)
     {
-        Cell c = GetCell(X,Y);
+        Cell c = getCell(X,Y);
         
         if (c != null)
-            c.SetState(CellState.CHECKED);
+            c.setState(CellState.CHECKED);
     }
     
     public Ship GetShipAt(int X, int Y)
     {
-        for(Ship s: Ships)
+        for(Ship s: ships)
         {
             if (s.GetDeck(X, Y) != null)
                     return s;
         }
         
         return null;
+    }
+    
+    public List<Ship> getShips()
+    {
+        return ships;
     }
 }
