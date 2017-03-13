@@ -22,7 +22,7 @@
     
     <dependencies>
         <dependency>
-            <groupId>org.aoxide.seabattle.entities</groupId>
+            <groupId>org.aoxide.seabattle</groupId>
             <artifactId>entities</artifactId>
             <version>1.0</version>
         </dependency>
