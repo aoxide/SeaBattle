@@ -4,7 +4,7 @@
     <groupId>org.aoxide.seabattle.entities</groupId>
     <artifactId>entities</artifactId>
     <version>1.0</version>
-    <name>Entities</name>
+    <name>entities</name>
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

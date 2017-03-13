@@ -9,7 +9,7 @@
 
     <name>Sea Battle</name>
     <modules>
-        <module>Entities</module>
+        <module>entities</module>
     </modules>
     <properties>
         <spring.version>4.1.1.RELEASE</spring.version>
