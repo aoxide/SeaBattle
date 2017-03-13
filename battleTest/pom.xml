@@ -24,7 +24,7 @@
     <dependencies>
         <dependency>
             <groupId>org.aoxide.seabattle</groupId>
-            <artifactId>dao</artifactId>
+            <artifactId>springDao</artifactId>
             <version>1.0</version>
             <scope>compile</scope>
         </dependency>
