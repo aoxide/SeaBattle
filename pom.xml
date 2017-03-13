@@ -10,6 +10,7 @@
     <name>Sea Battle</name>
     <modules>
         <module>entities</module>
+        <module>dao</module>
     </modules>
     <properties>
         <spring.version>4.1.1.RELEASE</spring.version>

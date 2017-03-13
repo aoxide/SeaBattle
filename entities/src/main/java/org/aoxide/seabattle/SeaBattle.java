@@ -2,6 +2,8 @@ package org.aoxide.seabattle;
 
 import org.aoxide.seabattle.dao.*;
 import org.aoxide.seabattle.entities.*;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  *
@@ -11,7 +13,8 @@ public class SeaBattle
 {
     public static void main(String[] args)
     {
-        DAO dao = new SpringDAO();
+        ApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"springContext.xml"});
+        DAO dao = (DAO)context.getBean("SpringDAO");
         Game game = new Game(dao, 0L, 1L);
         
         createShips(game,0L);

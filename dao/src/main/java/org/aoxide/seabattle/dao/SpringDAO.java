@@ -1,15 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.aoxide.seabattle.dao;
 
 import java.util.HashMap;
 import java.util.Map;
 import org.aoxide.seabattle.entities.*;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 
@@ -19,15 +12,8 @@ import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
  */
 public class SpringDAO implements DAO
 {
-    private final ApplicationContext context;
-    private final JdbcTemplate jdbcTemplate;
+    private JdbcTemplate jdbcTemplate;
             
-    public SpringDAO()
-    {
-        context = new ClassPathXmlApplicationContext(new String[]{"springContext.xml"});
-        jdbcTemplate = context.getBean("jdbcTemplate",JdbcTemplate.class);
-    }
-    
     @Override
     public void CreateGame(Game game)
     {
@@ -60,6 +46,16 @@ public class SpringDAO implements DAO
         SimpleJdbcInsert inserter = new SimpleJdbcInsert(jdbcTemplate).
                 withSchemaName("public").withTableName("shots").usingGeneratedKeyColumns("id");
         inserter.execute(params);
+    }
+    
+    public JdbcTemplate getJdbcTemplate()
+    {
+        return jdbcTemplate;
+    }
+    
+    public void setJdbcTemplate(JdbcTemplate aJdbcTemplate)
+    {
+        jdbcTemplate = aJdbcTemplate;
     }
     
 }
