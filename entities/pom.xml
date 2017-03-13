@@ -14,12 +14,38 @@
         <slf4j.version>1.7.13</slf4j.version>
     </properties>
     
+    <repositories>
+        <repository>
+            <id>seabattle</id>
+            <url>file://..\</url>
+        </repository>
+    </repositories>
+    
     <dependencies>
+        <dependency>
+            <groupId>org.aoxide.seabattle</groupId>
+            <artifactId>dao</artifactId>
+            <version>1.0</version>
+            <scope>compile</scope>
+        </dependency>
+        
         <!-- Spring -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
             <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        
+        <!-- DB -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.3-1102-jdbc41</version>
         </dependency>
         
         <!-- Logging -->
