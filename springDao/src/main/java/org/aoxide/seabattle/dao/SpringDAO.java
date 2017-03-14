@@ -1,9 +1,12 @@
 package org.aoxide.seabattle.dao;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import org.aoxide.seabattle.entities.*;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 
 /**
@@ -29,13 +32,24 @@ public class SpringDAO implements DAO
     }
     
     @Override
-    public void OpenGame(Game game)
+    public Game OpenGame(long game_id, long session_id)
     {
+        DAO dao = this;
+        Game game = jdbcTemplate.queryForObject("select * from public.game where id = ?", 
+          new RowMapper<Game>(){
+              @Override
+              public Game mapRow(ResultSet rs, int i) throws SQLException
+              {
+                  return new Game(dao, session_id);
+              }
+          }
+        );
         
+        return game;
     }
     
     @Override
-    public void CreateShip(Game game, long session_id, Ship ship) {
+    public void CreateShip(Game game, Ship ship) {
         throw new UnsupportedOperationException("Not supported yet."); 
     }
 

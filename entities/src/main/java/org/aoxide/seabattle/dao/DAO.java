@@ -9,7 +9,7 @@ import org.aoxide.seabattle.entities.*;
 public interface DAO 
 {
     public void CreateGame(Game game);
-    public void OpenGame(Game game);
-    public void CreateShip(Game game, long session_id, Ship ship);
+    public Game OpenGame(long game_id, long session_id);
+    public void CreateShip(Game game, Ship ship);
     public void Shot(Game game, long session_id, int x, int y);
 }
