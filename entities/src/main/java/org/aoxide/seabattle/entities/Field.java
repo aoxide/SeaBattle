@@ -10,23 +10,12 @@ import java.util.ArrayList;
 public class Field 
 {
     private final List<Cell> cells = new ArrayList<>();
-    private final List<Ship> ships = new ArrayList<>();
     
     public Field()
     {
         for (int i=1; i<=10;i++)
             for (int j=1; j<=10;j++)
                 cells.add(new Cell(i,j));
-    }
-    
-    public Field(boolean AutoGenerateShips)
-    {
-        this();
-        
-        if (AutoGenerateShips)
-        {
-            //TODO: AutoGenerateShips
-        }
     }
     
     public Cell getCell(int X, int Y)
@@ -48,19 +37,4 @@ public class Field
             c.setState(CellState.CHECKED);
     }
     
-    public Ship GetShipAt(int X, int Y)
-    {
-        for(Ship s: ships)
-        {
-            if (s.GetDeck(X, Y) != null)
-                    return s;
-        }
-        
-        return null;
-    }
-    
-    public List<Ship> getShips()
-    {
-        return ships;
-    }
 }

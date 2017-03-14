@@ -9,53 +9,35 @@ import org.aoxide.seabattle.dao.DAO;
 public class Game 
 {
     private long id;
-    private final Field field1;
-    private final Field field2;
-    private final long session1;
-    private final long session2;
+    private final long session;
+    private final Field myField;
+    private final Field foreignField;
     private final DAO dao;
     private GameState state;
     
-    public Game(DAO aDao, long aSession1, long aSession2)
+    public Game(DAO aDao, long aSession)
     {
         dao = aDao;
-        session1 = aSession1;
-        session2 = aSession2;
-        field1 = new Field();
-        field2 = new Field();
+        session = aSession;
+        myField = new MyField();
+        foreignField = new Field();
         state = GameState.CREATED;
         dao.CreateGame(this);
     }
     
-    public Long getSession1()
+    public Long getSession()
     {
-        return session1;
+        return session;
     }
     
-    public Long getSession2()
+    public Field getMyField()
     {
-        return session2;
+        return myField;
     }
     
-    public Field getField1()
+    public Field getForeignField()
     {
-        return field1;
-    }
-    
-    public Field getField2()
-    {
-        return field2;
-    }
-    
-    public Field getField(long session)
-    {
-        if (session == session1)
-            return field1;
-        else
-        if (session == session2)
-            return field2;
-        else 
-            return null;
+        return foreignField;
     }
     
     public long getId()
@@ -68,18 +50,10 @@ public class Game
         id = aId;
     }
     
-    /**
-    *
-    * @param session_id - who shot
-    */
-    public void shot(long session_id, int x, int y)
+    public void shot(int x, int y)
     {
-        dao.Shot(this, session_id, x, y);
-        
-        if (session_id == session1)
-          getField(session2).checkCell(x, y);
-        else getField(session1).checkCell(x, y);
-                
+        dao.Shot(this, session, x, y);
+        foreignField.checkCell(x,y);
     }
     
     public GameState getState()

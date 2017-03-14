@@ -7,13 +7,14 @@
     <artifactId>seabattle</artifactId>
     <version>1.0</version>
     <packaging>pom</packaging>
-
     <name>Sea Battle</name>
+    
     <modules>
         <module>entities</module>
         <module>springDao</module>
         <module>battleTest</module>
     </modules>
+    
     <properties>
         <spring.version>4.1.1.RELEASE</spring.version>
         <slf4j.version>1.7.13</slf4j.version>
